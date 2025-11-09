@@ -114,22 +114,3 @@ char* load_secret_key_from_file(const char* file_path) {
     fclose(file);
     return secret_key;
 }
-
-int main() {
-    char* token_hash = generate_token_and_hash();
-    if (token_hash) {
-        printf("Generated Token.Hash: %s\n", token_hash);
-    } else {
-        printf("Failed to generate token.\n");
-        return 1;
-    }
-
-    if (verify_token_and_hash(token_hash)) {
-        printf("Token and hash verified successfully.\n");
-    } else {
-        printf("Token and hash verification failed.\n");
-    }
-
-    free(token_hash);  // Free the allocated memory
-    return 0;
-}
